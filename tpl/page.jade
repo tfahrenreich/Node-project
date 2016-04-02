@@ -1,0 +1,16 @@
+//
+   Created by Tim on 2/24/2016.
+
+doctype !!!
+
+html
+   head
+      title= "Real time web chat"
+      script(src="/chat.js")
+      script(src="/socket.io/socket.io.js")
+   body
+      #content(style='width: 500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;')
+      .controls
+         input#name(style='width:350px;')
+         input#field.field(style='width:350px;')
+         input#send.send(type='button', value='send')
