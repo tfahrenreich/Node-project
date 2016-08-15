@@ -5,12 +5,13 @@ doctype !!!
 
 html
    head
-      title= "Real time web chat"
-      script(src="/chat.js")
+      title= "SLIDES"
+      script(src="/slides.js")
       script(src="/socket.io/socket.io.js")
    body
-      #content(style='width: 500px; height: 300px; margin: 0 0 20px 0; border: solid 1px #999; overflow-y: scroll;')
-      .controls
-         input#name(style='width:350px;')
-         input#field.field(style='width:350px;')
-         input#send.send(type='button', value='send')
+      h1(id="window")
+      h1(id='content')
+      //iframe(src="https://demo.geckoboard.com/dashboards/03CF7FF63ED2B885" width="100%" height="500px")
+      video(poster="//i.imgur.com/sPnhkWPh.jpg" preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="" style="width: 720px; height: 406px;")
+         source(src="//i.imgur.com/sPnhkWP.mp4" type="video/mp4")
+

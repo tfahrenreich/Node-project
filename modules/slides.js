@@ -5,7 +5,6 @@
 var express = require('express');
 var app = express();
 var port = 2368;
-var mongo = require('./mongo');
 
 
 app.set('views', __base + '/tpl');
@@ -15,7 +14,7 @@ app.engine('jade', require('jade').__express);
 
 app.get("/", function(req, res){
     res.render("page" , {
-        title: "chat"
+        title: "slides"
     });
 });
 
@@ -24,10 +23,16 @@ app.use(express.static(__base + '/public'));
 var io = require('socket.io').listen(app.listen(port));
 
 io.sockets.on('connection',function(socket){
-    socket.emit('message', {message: "sup g"});
+    socket.emit('slide', n);
     socket.on('send',function(data){
         io.sockets.emit('message', data);
-        mongo.doThing(data);
     });
 });
 
+var n = 1;
+setInterval(function () {
+    if(n > 2) n = 0;
+    n++;
+    io.sockets.emit('slide', n);
+    console.log('slide: ' + n);
+}, 5000);

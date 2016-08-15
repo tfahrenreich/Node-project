@@ -3,9 +3,9 @@
  */
 global.__base = __dirname + '/';
 
-var hello = require('./modules/hello');
-var chat = require('./modules/chat');
-var AML = require('./modules/AMLTranslator');
+//var hello = require('./modules/hello');
+var slide = require('./modules/slides');
+//var AML = require('./modules/AMLTranslator');
 
 
-console.log(AML.translate("Hello, ^%World!^!%"));
+console.log("slide server");
