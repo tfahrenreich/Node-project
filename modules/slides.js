@@ -12,27 +12,34 @@ app.set('view engine', 'jade');
 app.engine('jade', require('jade').__express);
 
 
-app.get("/", function(req, res){
-    res.render("page" , {
+app.get("/screens/:screen", function(req, res){
+    var screen = req.params.screen;
+    res.render(screen, {
         title: "slides"
     });
 });
+
+app.use('/assets/scripts/libs/jquery', express.static(__base + '/node_modules/jquery/dist'));
 
 app.use(express.static(__base + '/public'));
 
 var io = require('socket.io').listen(app.listen(port));
 
-io.sockets.on('connection',function(socket){
-    socket.emit('slide', n);
-    socket.on('send',function(data){
-        io.sockets.emit('message', data);
-    });
-});
+var slideTimes = [
+        5000,
+        2000,
+        5000,
+        10000
+    ];
 
-var n = 1;
-setInterval(function () {
-    if(n > 2) n = 0;
-    n++;
-    io.sockets.emit('slide', n);
-    console.log('slide: ' + n);
-}, 5000);
+function changeSlide(slide) {
+    var slideTime = slideTimes[slide-1];
+    var nextSlide = (slide+1) > slideTimes.length ? 1 : (slide+1);
+
+    io.sockets.emit('slide', slide);
+
+    setTimeout(function(){
+        changeSlide(nextSlide)
+    }, slideTime)
+}
+changeSlide(1);
