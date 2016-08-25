@@ -9,28 +9,24 @@ html
       script(src="/assets/scripts/libs/jquery/jquery.min.js")
       script(src="/slides.js")
       script(src="/socket.io/socket.io.js")
+      link(rel="stylesheet" href="/styles.css")
    body
-      h1(id="window") Screen 1
-      h1(id='content')
       div(id="slider")
          div(class='slide' style="display: none")
-            h2 slide one
+            h2 screen 1
                br
                small 5 secs
                br
-               span(style="color: green;") check
+            h1(style="color: green") check
          div(class='slide' style="display: none")
-            h2 slide two
-               br
-               small 2 secs
+            h1 1
          div(class='slide' style="display: none")
             h2 slide three
                br
-               small 5 sec
                video(poster="//i.imgur.com/sPnhkWPh.jpg" preload="auto" autoplay="autoplay" muted="muted" loop="loop" webkit-playsinline="" style="width: 720px; height: 406px;")
                   source(src="//i.imgur.com/sPnhkWP.mp4" type="video/mp4")
          div(class='slide' style="display: none")
             h2 slide 4
                br
                small 10 secs
-            h1 stats-->
+            h1 stats

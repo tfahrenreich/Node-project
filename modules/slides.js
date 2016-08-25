@@ -23,7 +23,7 @@ app.use('/assets/scripts/libs/jquery', express.static(__base + '/node_modules/jq
 
 app.use(express.static(__base + '/public'));
 
-var io = require('socket.io').listen(app.listen(port));
+var io = require('socket.io').listen(app.listen(port), {});
 
 var slideTimes = [
         5000,
