@@ -25,3 +25,20 @@ h1{
 h2{
     text-transform: uppercase;
 }
+
+body.one .key-art{
+    background: url("https://stocklandmartelblog.files.wordpress.com/2013/09/matthias-clamer_its-always-sunny.jpg");
+}
+body.two .key-art{
+    background: url("http://www.graphis.com/media/LEGACY-FILES/cfe/68_bestinposterannual2014/12846_9c3ced715d466de095a57650ce1f0331.jpg");
+}
+body.three .key-art{
+    background: url("http://www.reviewandroast.com/wp-content/uploads/2015/12/sex-drugs-rock-roll-image-poster.jpg");
+}
+
+.key-art{
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center center;
+}
